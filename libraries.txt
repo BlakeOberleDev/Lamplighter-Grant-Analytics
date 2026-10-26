@@ -1,0 +1,9 @@
+Rendering filters
+Rendering saved filters
+Table
+active filter renders
+Normalize
+
+ALL OF THESE NEED ACESS TO THE WORKSPACE CLASS FOR DATA, honestly you need like one render method for all of them that reads data and displays it, except maybe dont do that for table, although maybe if you want it to have live filters
+
+YOU GOTTA ADJUST THE HTML NAMING CONVENTIONS
