@@ -56,3 +56,54 @@ function extractVictimizationPairs(text) {
 
     return result;
 }
+
+//Probably should do some testing before throwing this in the class I think
+function test(func, input, expected){
+    let result = func(input)
+    if( result == expected){
+        console.log("passed")
+    } else {
+        console.log(`Failed at: ${input}, expected ${expected}, got ${result}`)
+    }
+}
+
+
+test(extractVictimizationPairs, "sex trafficking", ["sex trafficking"])
+test(extractVictimizationPairs, "sexual trafficking", ["sex trafficking"])
+test(extractVictimizationPairs, "labor trafficking", ["labor trafficking"])
+test(extractVictimizationPairs, "sex exploitation", ["sex exploitation"])
+test(extractVictimizationPairs, "sexual exploitation", ["sex exploitation"])
+test(extractVictimizationPairs, "labor exploitation", ["labor exploitation"])
+
+
+test(extractVictimizationPairs, "sex and labor trafficking", ["sex trafficking", "labor trafficking"])
+test(extractVictimizationPairs, "sex and labor exploitation", ["sex exploitation", "labor exploitation"])
+
+test(extractVictimizationPairs, "sexual and labor trafficking", ["sex trafficking", "labor trafficking"])
+test(extractVictimizationPairs, "sexual and labor exploitation", ["sex exploitation", "labor exploitation"])
+
+test(extractVictimizationPairs, "labor and sex trafficking", ["labor trafficking", "sex trafficking"])
+test(extractVictimizationPairs, "labor and sex exploitation", ["labor exploitation", "sex exploitation"])
+
+test(extractVictimizationPairs, "labor and sexual trafficking", ["labor trafficking", "sex trafficking"])
+test(extractVictimizationPairs, "labor and sexual exploitation", ["labor exploitation", "sex exploitation"])
+
+
+test(extractVictimizationPairs, "sex trafficking and exploitation", ["sex trafficking", "sex exploitation"])
+test(extractVictimizationPairs, "sexual trafficking and exploitation", ["sex trafficking", "sex exploitation"])
+test(extractVictimizationPairs, "labor trafficking and exploitation", ["labor trafficking", "labor exploitation"])
+
+
+test(extractVictimizationPairs, "sex trafficking and exploitation and labor trafficking", ["sex trafficking", "sex exploitation", "labor trafficking"])
+test(extractVictimizationPairs, "sex trafficking and exploitation and labor exploitation", ["sex trafficking", "sex exploitation", "labor exploitation"])
+
+test(extractVictimizationPairs, "labor trafficking and exploitation and sex exploitation", ["labor trafficking", "labor exploitation", "sex exploitation"])
+test(extractVictimizationPairs, "labor trafficking and exploitation and sex trafficking", ["labor trafficking", "labor exploitation", "sex trafficking"])
+
+
+
+test(extractVictimizationPairs, "sex trafficking and labor exploitation", ["sex trafficking", "labor exploitation"])
+test(extractVictimizationPairs, "labor exploitation and sex trafficking", ["labor exploitation", "sex trafficking"])
+
+
+test(extractVictimizationPairs, "sex and labor trafficking and exploitation", ["sex trafficking", "labor trafficking", "sex exploitation", "labor exploitation"])
